@@ -1,0 +1,18 @@
+{
+  "name": "stec-sitemap",
+  "version": "1.4.0",
+  "private": true,
+  "description": "에스텍베스트 사업장 지도 - 안드로이드·아이폰 앱 포장(Capacitor)",
+  "scripts": {
+    "www": "rm -rf www && mkdir -p www && cp index.html manifest.webmanifest www/ && cp -r icons www/"
+  },
+  "dependencies": {
+    "@capacitor/android": "6.2.0",
+    "@capacitor/core": "6.2.0",
+    "@capacitor/ios": "6.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "3.0.5",
+    "@capacitor/cli": "6.2.0"
+  }
+}

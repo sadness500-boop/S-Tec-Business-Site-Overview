@@ -1,0 +1,6 @@
+{
+  "appId": "com.stecbest.sitemap",
+  "appName": "사업장 지도",
+  "webDir": "www",
+  "android": { "allowMixedContent": false }
+}

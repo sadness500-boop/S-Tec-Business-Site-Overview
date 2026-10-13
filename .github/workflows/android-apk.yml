@@ -1,0 +1,69 @@
+# index.html 을 올리거나(main 브랜치) Actions 탭에서 직접 실행하면 안드로이드 앱(apk)을 만들어
+# 릴리스에 stec-sitemap.apk 로 붙입니다. 앱 안의 「앱 다운로드 QR」은 이 파일 주소를 가리킵니다.
+name: Android APK
+
+on:
+  push:
+    branches: [main]
+    paths: [index.html, icons/**, capacitor.config.json, package.json, .github/workflows/android-apk.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: android-actions/setup-android@v3
+
+      - name: 웹 파일 준비
+        run: |
+          npm install
+          npm run www
+
+      - name: 안드로이드 프로젝트 만들기
+        run: |
+          npx cap add android
+          mkdir -p assets && cp icons/app-icon-1024.png assets/icon-only.png && cp icons/app-icon-1024.png assets/icon-foreground.png
+          printf '<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024"><rect width="1024" height="1024" fill="#0d1830"/></svg>' > assets/icon-background.svg
+          npx capacitor-assets generate --android --iconBackgroundColor '#0d1830' --splashBackgroundColor '#0d1830' || true
+          npx cap sync android
+
+      - name: 위치 권한(GPS) 넣기
+        run: |
+          M=android/app/src/main/AndroidManifest.xml
+          grep -q ACCESS_FINE_LOCATION "$M" || sed -i 's#<uses-permission android:name="android.permission.INTERNET" />#<uses-permission android:name="android.permission.INTERNET" />\n    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />\n    <uses-feature android:name="android.hardware.location.gps" android:required="false" />#' "$M"
+          grep -n LOCATION "$M"
+
+      - name: apk 빌드
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+          cp app/build/outputs/apk/debug/app-debug.apk ../stec-sitemap.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stec-sitemap-apk
+          path: stec-sitemap.apk
+
+      - name: 릴리스에 올리기 (QR 다운로드 주소)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: app-latest
+          name: 사업장 지도 안드로이드 앱 (최신)
+          body: 휴대폰에서 stec-sitemap.apk 를 내려받아 설치하세요. 「출처를 알 수 없는 앱」 안내가 나오면 이 출처 허용을 켜고 다시 설치합니다.
+          files: stec-sitemap.apk
+          make_latest: true
