@@ -35,7 +35,7 @@ jobs:
       - name: 안드로이드 프로젝트 만들기
         run: |
           npx cap add android
-          mkdir -p assets && cp icons/app-icon-1024.png assets/icon-only.png && cp icons/app-icon-1024.png assets/icon-foreground.png
+          mkdir -p assets && cp icons/app-icon-1024.png assets/icon-only.png && cp icons/app-icon-foreground-1024.png assets/icon-foreground.png
           printf '<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024"><rect width="1024" height="1024" fill="#0d1830"/></svg>' > assets/icon-background.svg
           npx capacitor-assets generate --android --iconBackgroundColor '#0d1830' --splashBackgroundColor '#0d1830' || true
           npx cap sync android
