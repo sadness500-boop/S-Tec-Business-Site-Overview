@@ -1,6 +1,6 @@
 # S-Tec-Business-Site-Overview
 
-**v1.7.0** · 에스텍베스트 본사와 동부·서부·남부·중부 4개 지사가 관리하는 고객사 사업장의 위치, 인원구성, 근무형태를 지도로 보는 현장관리 서비스입니다. 본사·지사 직원과 관리 지사장이 현장에 갈 때 사업장 위치와 현황을 바로 확인하도록 만들었습니다.
+**v1.7.1** · 에스텍베스트 본사와 동부·서부·남부·중부 4개 지사가 관리하는 고객사 사업장의 위치, 인원구성, 근무형태를 지도로 보는 현장관리 서비스입니다. 본사·지사 직원과 관리 지사장이 현장에 갈 때 사업장 위치와 현황을 바로 확인하도록 만들었습니다.
 
 - 웹 주소: https://sadness500-boop.github.io/S-Tec-Business-Site-Overview/
 - 안드로이드 앱: [stec-sitemap.apk 내려받기](https://github.com/sadness500-boop/S-Tec-Business-Site-Overview/releases/latest/download/stec-sitemap.apk)
