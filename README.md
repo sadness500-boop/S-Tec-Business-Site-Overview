@@ -28,7 +28,7 @@
 index.html                     지도 앱 전체 (한 파일)
 auth-config.json               로그인 서버 연결 설정 (제작자가 수정, 처음엔 꺼짐)
 server/supabase_setup.sql      로그인 서버(Supabase) 설정 SQL
-docs/                          사용 매뉴얼 · 제작자관리 사용매뉴얼 (Word · PPT)
+docs/                          사용 매뉴얼 (Word · PPT · 웹)
 manifest.webmanifest, sw.js    홈 화면에 앱으로 설치(PWA)·오프라인 열기
 icons/                         앱 아이콘
 package.json, capacitor.config.json
@@ -50,7 +50,7 @@ package.json, capacitor.config.json
 - **끄는 법:** `auth-config.json` 의 `"enabled": false` — 다음 실행부터 로그인 없이 사용.
 - 안드로이드·아이폰 앱도 이 저장소의 `auth-config.json` 을 읽습니다.
 - 비밀번호는 서버에 암호화(bcrypt) 저장되어 제작자도 볼 수 없습니다. **service_role · secret 키는 절대 저장소·앱에 넣지 마세요.**
-- 자세한 순서: [제작자관리 사용매뉴얼 (Word)](docs/S-Tec-Business-Site-Overview_제작자관리_사용매뉴얼_v1.7.0.docx) · [PPT](docs/S-Tec-Business-Site-Overview_제작자관리_사용매뉴얼_v1.7.0.pptx)
+- 제작자 관리매뉴얼은 공개하지 않습니다 — 제작자 계정으로 로그인한 뒤 「📘 사용자 매뉴얼 → 🛡 제작자 관리매뉴얼」에서만 보고 내려받을 수 있습니다(서버 비공개 보관함).
 - 직원용: [사용 매뉴얼 (Word)](docs/S-Tec-Business-Site-Overview_사용매뉴얼_v1.7.0.docx) · [PPT](docs/S-Tec-Business-Site-Overview_사용매뉴얼_v1.7.0.pptx)
 
 ## 휴대폰에 설치하기
