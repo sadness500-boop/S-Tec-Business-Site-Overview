@@ -4895,7 +4895,7 @@ const cfgOn = c => !!(c && c.enabled && c.supabaseUrl && c.supabaseAnonKey && !/
 /* ---------- 화면: 로그인 게이트 ---------- */
 function lock(){ document.body.classList.add('auth-locked'); g('authGate').classList.remove('hidden'); }
 function unlock(){ document.body.classList.remove('auth-locked'); g('authGate').classList.add('hidden'); }
-function brand(){ const ic=document.querySelector('.brand img.appic'); return `<div class="ag-brand">${ic?`<img src="${ic.src}" alt="">`:''}<div><b>S-Tec-Business-Site-Overview</b><small>에스텍베스트 사업장 현황 지도 · 로그인</small></div></div>`; }
+function brand(){ const ic=document.querySelector('.brand img.appic'); return `<div class="ag-brand">${ic?`<img src="${ic.src}" alt="">`:''}<div><b>S-Tec-Business-Site-Overview</b><small>에스텍 그룹 사업장 현황 지도 · 로그인</small></div></div>`; }
 const SIGN = `<div class="ag-sign">Designed &amp; Developed by ${AUTH_CREATOR}</div>`;
 function msg(type,html){ const m=g('agMsg'); if(!m) return; m.className='ag-msg on '+type; m.innerHTML=html; }
 function busy(btn,on,label){ if(!btn) return; btn.disabled=on; if(label) btn.textContent=label; }
@@ -5669,7 +5669,7 @@ table.aa-t{border-collapse:collapse;width:100%;font-size:12.5px;min-width:820px}
 </script>
 <script>try{ if(window.StecMaster) StecMaster.register({code:'stso'}); }catch(e){}</script>
 <!-- STEC-BAR START (공통 상단 버튼 — vendor/stec-bar.js 에서 생성) -->
-<script>window.STEC_BAR_CFG = {"app": "stso", "auth": "STSO_AUTH", "into": ".top-acts", "hide": ["#dlBtn", "#inviteBtn", "#acctBtn", ".top-acts .tseg"], "qr": "#dlBtn", "share": "#inviteBtn", "acct": "#acctBtn", "theme": {"attr": "data-th"}, "head": {"el": "header.topbar", "into": ".topbar .wrap", "hide": ["#top"], "home": "#top", "en": "S-Tec-Business-Site-Overview", "ko": "에스텍베스트 사업장 현황 지도"}, "foot": {"hide": ["section.family", "footer .credit", "body > footer:not(#sbFoot)"], "after": "body > footer"}, "manual": {"html": "docs/user-manual.html", "docx": "docs/S-Tec-Business-Site-Overview_사용매뉴얼_v1.7.0.docx", "pptx": "docs/S-Tec-Business-Site-Overview_사용매뉴얼_v1.7.0.pptx", "name": "S-Tec-Business-Site-Overview_사용자매뉴얼_v1.7.0", "title": "에스텍베스트 사업장 현황 지도"}};</script>
+<script>window.STEC_BAR_CFG = {"app": "stso", "auth": "STSO_AUTH", "into": ".top-acts", "hide": ["#dlBtn", "#inviteBtn", "#acctBtn", ".top-acts .tseg"], "qr": "#dlBtn", "share": "#inviteBtn", "acct": "#acctBtn", "theme": {"attr": "data-th"}, "head": {"el": "header.topbar", "into": ".topbar .wrap", "hide": ["#top"], "home": "#top", "en": "S-Tec-Business-Site-Overview", "ko": "에스텍 그룹 사업장 현황 지도"}, "foot": {"hide": ["section.family", "footer .credit", "body > footer:not(#sbFoot)"], "after": "body > footer"}, "manual": {"html": "docs/user-manual.html", "docx": "docs/S-Tec-Business-Site-Overview_사용매뉴얼_v1.7.0.docx", "pptx": "docs/S-Tec-Business-Site-Overview_사용매뉴얼_v1.7.0.pptx", "name": "S-Tec-Business-Site-Overview_사용자매뉴얼_v1.7.0", "title": "에스텍 그룹 사업장 현황 지도"}};</script>
 <script>
 /* =====================================================================
  * 에스텍 통합관리시스템 공통 상단 버튼 (stec-bar) v1.0
@@ -5831,7 +5831,7 @@ ${hide ? hide + '{display:none!important}' : ''}
 .sb-sig{position:relative;display:inline-flex;align-items:center;gap:6px;line-height:0;animation:sbGlow 2.4s ease-in-out infinite;padding:4px 6px}
 .sb-sig .sg-img{position:relative;display:inline-block;height:30px;aspect-ratio:795/72}
 @media (max-width:760px){.sb-head #sbBrand,.sb-head .sb-side{grid-column:1/-1}}
-@media (max-width:520px){.sb-sig{flex-wrap:wrap;justify-content:center;max-width:100%}.sb-sig .sg-img{height:22px;max-width:calc(100vw - 40px)}.sb-sigt{line-height:1.4;padding:2px 4px}.sb-sigt .sg-txt{font:inherit;font-size:12.5px;font-weight:600;white-space:nowrap;background:linear-gradient(90deg,#FFE066,#FF8FD8,#8FD3FF,#7CF2B4,#FFE066,#FF8FD8);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sbFlow 5s linear infinite}@media (max-width:520px){.sb-sigt .sg-txt{white-space:normal}}
+@media (max-width:520px){.sb-sig{flex-wrap:wrap;justify-content:center;max-width:100%}.sb-sig .sg-img{height:22px;max-width:calc(100vw - 40px)}.sb-sigt{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;line-height:1.4;letter-spacing:.01em;white-space:nowrap}.sb-sigt .sg-by{color:#8E9AC6;font-weight:500}.sb-sigt .sg-nm{color:#FFFFFF;font-weight:700;letter-spacing:.02em}.sb-sigt .sg-dot{width:4px;height:4px;border-radius:50%;background:#2FA04A;display:inline-block;margin:0 2px}.sb-sigt .sg-dt{color:#C9D1F0;font-variant-numeric:tabular-nums;font-weight:500}@media (max-width:520px){.sb-sigt{white-space:normal;flex-wrap:wrap;justify-content:center;font-size:12px}}
 .sb-sig .sg-date{font-size:17px;line-height:24px}}
 .sb-sig .sg-img::before,.sb-sig .sg-img::after{inset:0}@media (max-width:600px){.sb-sig{flex-wrap:wrap;justify-content:center;max-width:100%}.sb-sig .sg-img{height:22px}.sb-sig .sg-date{font-size:16px;line-height:22px}}
 .sb-sig .sg-date{font-family:'SbDancing','Brush Script MT',cursive;font-size:22px;line-height:30px;font-weight:400;white-space:nowrap;background:linear-gradient(90deg,#FFE066,#FF8FD8,#8FD3FF,#7CF2B4,#FFE066,#FF8FD8);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sbFlow 5s linear infinite}
@@ -5942,7 +5942,7 @@ ${hide ? hide + '{display:none!important}' : ''}
     const ft = document.createElement('footer'); ft.className = 'sb-foot'; ft.id = 'sbFoot';
     const en = (HD && HD.en) || CFG.name || '', ko = (HD && HD.ko) || '';
     ft.innerHTML = `<div class="sbf-in"><span class="l">© 에스텍 그룹 · ${E(en)}${ko ? ` (${E(ko)})` : ''}</span><span class="mid"></span>
-      <span class="sb-sig sb-sigt"><b class="sg-txt">Designed &amp; Developed by Rat Rae Choi · ${date}</b>${SPK}</span></div>`;
+      <span class="sb-sigt"><span class="sg-by">Designed &amp; Developed by</span> <b class="sg-nm">Rat Rae Choi</b><i class="sg-dot" aria-hidden="true"></i><time class="sg-dt">${date}</time></span></div>`;
     (F.move || []).forEach(s => { const el = $(s); if (el) ft.querySelector('.mid').appendChild(el); });
     const at = F.after && $(F.after);
     if (at && at.parentNode) { at.parentNode.insertBefore(fam, at); at.parentNode.insertBefore(ft, at.nextSibling); }
@@ -6108,8 +6108,21 @@ ${hide ? hide + '{display:none!important}' : ''}
   }
 
   /* ---------- 시작 ---------- */
+
+  /* ---------- 12개 프로그램 공통 디자인 기준 (글씨체 · 기본 글씨 크기) ---------- */
+  function applyBase() {
+    if (document.getElementById('stecBase') || CFG.base === false) return;
+    if (!document.querySelector('link[href*="pretendardvariable"]')) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css'; document.head.appendChild(l); }
+    const st = document.createElement('style'); st.id = 'stecBase';
+    const F = '"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif';
+    st.textContent = `:root{--stec-font:${F}}
+html body{font-family:var(--stec-font)!important;font-size:15px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;letter-spacing:-.005em}
+html body :is(button,input,select,textarea,optgroup){font-family:inherit}
+html body :is(input,select,textarea)::placeholder{letter-spacing:0}`;
+    document.head.appendChild(st);
+  }
   function start() {
-    applyHead(); render(); applyFoot(); loadOrg(true); setTimeout(syncIcon, 300);
+    applyBase(); applyHead(); render(); applyFoot(); loadOrg(true); setTimeout(syncIcon, 300);
     let last = '';
     setInterval(() => {
       const p = prof(), key = (p ? p.id + p.role + (p.name || '') : '') + '|' + thCur() + '|' + (S.org ? S.org.pending : '') + '|' + darkBg(bar);
