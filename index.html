@@ -3781,7 +3781,9 @@ function siteOrgId(s) {
 }
 const SCOPE = { id: "" };
 { const v = store.get("stso.scope"); if (v && ORG.map[v]) SCOPE.id = v; }
-function inScope(s) { if (!SCOPE.id) return true; const id = siteOrgId(s); return !!id && orgPath(id).some(o => o.id === SCOPE.id); }
+/* 프로그램별 관리범위 — 통합관리 콘솔 「🔐 프로그램별 권한」(없으면 공통 관리범위). 범위 밖 회사·조직의 사업장은 보이지 않음 */
+function appSiteOk(s) { const A = window.APP_ACCESS || {}, sc = A.scope; if (!sc || sc.all || !A.perm_map) return true; const id = siteOrgId(s); return !!(id && A.perm_map[id]); }
+function inScope(s) { if (!appSiteOk(s)) return false; if (!SCOPE.id) return true; const id = siteOrgId(s); return !!id && orgPath(id).some(o => o.id === SCOPE.id); }
 const SC = () => SITES.filter(inScope);
 const sitesUnder = id => id ? SITES.filter(s => { const x = siteOrgId(s); return x && orgPath(x).some(o => o.id === id); }) : SITES;
 function scopeTitle() { if (!SCOPE.id) { const r = orgRoot(); return (r ? r.name : "에스텍 그룹") + " 전체"; } return orgPath(SCOPE.id).filter(o => o !== orgRoot()).map(o => o.name).join(" "); }
@@ -4225,6 +4227,7 @@ function setScope(id, quiet) {
   try { liveSpotList(); liveClock(); liveSpot(); liveFacts(); } catch (e) {}
   if (!quiet) toast(`${scopeTitle()} · 사업장 ${TOT.sites}곳 · ${TOT.total}명`);
 }
+window.addEventListener('app-access', () => { try { setScope(SCOPE.id, true); } catch (e) { } });   // 관리범위가 도착하면 다시 그림
 renderScope();
 renderChips();
 refreshAll();
